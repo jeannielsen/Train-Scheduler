@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Train Scheduler</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Link to Moment.js-->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Added Moment JS -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+   <!-- Firebase script -->
+   <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+      <!-- Custom CSS-->
+      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <style>
+        #train-table th,
+        td {
+          display: inline-block;
+          width: 16.575%;
+        }
+      </style>
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="jumbotron" id="train">
+                <h1>Anytime is Train Time</h1>
+                <h2>Choo Choo.  Chee Chee.</h2>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h5>Current Train Schedule</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm table-hover" id='train-table'>
+                        <thead>
+                            <tr>
+                                <th scope="col">Train Name</th>
+                                <th scope="col">Destination</th>
+                                <th scope="col">Frequency(min)</th>
+                                <th scope="col">Next Arrival</th>
+                                <th scope="col">Minutes Away</th>
+                            </tr>
+                        </thead>
+                        <tbody id="trainTableBody">
+                            <!-- Train information will show here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Train inputs below -->
+           
+            <form>
+                <div class="form-group">
+                  <label for="train-name-input">Train Name</label>
+                  <input class="form-control" id="train-name-input" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="destination-input">Destination</label>
+                  <input class="form-control" id="destination-input" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="first-input">First Train Time(Military Time)</label>
+                  <input class="form-control" id="first-input" placeholder="example: 15:30" type="number">
+                </div>
+                <div class="form-group">
+                  <label for="freq-input">Frequency (mins)</label>
+                  <input class="form-control" id="freq-input" placeholder="two digit numbers" type="number">
+                </div>
+                <button class="btn btn-primary float-right" id="add-train-btn">Submit</button>
+              </form>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  
+
+  <!-- JavaScript -->
+  <script src="assets/javascript/logic.js"></script>
+ 
+
+</body>
+
+</html>
