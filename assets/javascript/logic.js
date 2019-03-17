@@ -1,31 +1,25 @@
 // Initialize Firebase
-var config = {
-  apiKey: "AIzaSyB8O9Fljp2Lff0yDQB3Skck3mIckOhV-IE",
-  authDomain: "trainscheduler2.firebaseapp.com",
-  databaseURL: "https://trainscheduler2.firebaseio.com",
-  projectId: "trainscheduler2",
-  storageBucket: "trainscheduler2.appspot.com",
-  messagingSenderId: "361082925603"
-};
+
+// ========need to add to project apikey==============
+
 firebase.initializeApp(config);
 
 
 //Variables
 var database = firebase.database();
 
-//  Button for adding trains
-$("#add-train-btn").on("click", function(event) {
+//  Button for adding items
+$("#add-item-btn").on("click", function(event) {
   event.preventDefault();
 
   // Grabs user input
-  var trainName = $("#train-name-input").val().trim();
-  var trainDestination = $("#destination-input").val().trim();
-  var trainStart = moment($("#start-input").val().trim(), "HH:mm").format("X");
-  var trainFreq = $("#freq-input").val().trim();
+  var itemName = $("#item-input").val().trim();
+  var sizeName = $("#size-input").val().trim();
+  var quantityName = ($("#quantity-input").val().trim();
 
   // Creates local "temporary" object for holding train data
-  var newTrain = {
-    name: trainName,
+  var newOrder = {
+    name: itemName,
     destination: trainDestination,
     start: trainStart,
     freq: trainFreq
@@ -92,16 +86,16 @@ database.ref().on("child_added", function (childSnapshot) {
     var tRemainder = diffTime % trainFreq;
     console.log(tRemainder);
 
-        // Minute Until Train
+        // Minutes Until Train
         var tMinutesTillTrain = trainFreq - tRemainder;
         console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 
 
  // Next Train
- var nextTrain = currentTime.add(tMinutesTillTrain, "minutes");
+ var nextTrain = moment().add(tMinutesTillTrain, "minutes");
  console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
- var formatNextTrain = moment(nextTrain).format("HH:mm");
+ var formatNextTrain = currentTime.add(nextTrain).format("HH:mm");
 
   // Create the new row
   var newRow = $("<tr>").append(
