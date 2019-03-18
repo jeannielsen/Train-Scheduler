@@ -23,7 +23,7 @@ $("#add-item-btn").on("click", function(event) {
   // Grabs user input
   var itemName = $("#item-input").val().trim();
   var sizeName = $("#size-input").val().trim();
-  var quantityName = ($("#quantity-input").val().trim();
+  var quantityName = $("#quantity-input").val().trim();
 
   // Creates local "temporary" object for holding train data
   var newOrder = {
